@@ -7,61 +7,66 @@ class GridCharacters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final character = Provider.of<CharacterService>(context);
+    final characterProvideer = Provider.of<CharacterService>(context);
     return GridView.builder(
-          physics: BouncingScrollPhysics(),
-        gridDelegate:const SliverGridDelegateWithMaxCrossAxisExtent(
+        physics: BouncingScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
             mainAxisSpacing: 15,
-            crossAxisSpacing: 15, 
-            childAspectRatio:5,
-            mainAxisExtent: 230
-          
-          ),
-        itemCount: character.resultsCharacter.length,
-        itemBuilder:(_, index){
-          
-          return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient:const LinearGradient(
-            begin:Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors:[
-              Color(0xFFf9a470),
-              Color(0xFFbc556f),
-            ]),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              left: -20,
-              top: -20,
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(character.resultsCharacter[index].image,),
-                backgroundColor: Colors.transparent.withOpacity(0.2),
-                radius: 90,
-                
-              )
+            crossAxisSpacing: 15,
+            childAspectRatio: 5,
+            mainAxisExtent: 230),
+        itemCount: characterProvideer.resultsCharacter.length,
+        itemBuilder: (_, index) {
+          final character = characterProvideer.resultsCharacter;
+          final dataCharacter = character[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'details', arguments: dataCharacter );
+            },
+            child: Hero(
+              tag: dataCharacter.id,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFFf9a470),
+                            Color(0xFFbc556f),
+                          ]),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Positioned(
+                            left: -20,
+                            top: -20,
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                characterProvideer.resultsCharacter[index].image,
+                              ),
+                              backgroundColor: Colors.transparent.withOpacity(0.2),
+                              radius: 90,
+                            )),
+                        Positioned(
+                            bottom: 20,
+                            child: Text(
+                              characterProvideer.resultsCharacter[index].name,
+                              style:const TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ))
+                      ],
+                    )),
+              ),
             ),
-
-             Positioned(
-              
-              bottom: 20,
-              child: Text(character.resultsCharacter[index].name, 
-              style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold,),
-              ) )
-          ],
-        )
-        
-      ),
-    );
-        }
-        );
+          );
+        });
   }
 }
-
-

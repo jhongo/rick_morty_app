@@ -9,23 +9,27 @@ class CharacterService extends ChangeNotifier {
 
   String _urlBase = 'rickandmortyapi.com';
 
+/// A list of characters.
   List<Character> resultsCharacter = [];
 
+  /// It calls the getAllCharacter() function.
   CharacterService(){
-    print('CharacterService inicializado');
     getAllCharacter();
   }
 
-/// It gets all the characters from the API.
+/// It takes the URL, makes a request to the API, and then parses the response into a list of characters
   getAllCharacter() async {
     final url = await Uri.https(_urlBase,'/api/character',{
       'page':'1'
     });
 
-
     final response = await http.get(url);
     final characterResponse = RickAndMortyResponse.fromJson(response.body);
-    resultsCharacter = characterResponse.results;
+    //opc ->1
+    resultsCharacter.addAll(characterResponse.results);
+    //opc ->2
+    // resultsCharacter = characterResponse.results;
+    
     notifyListeners();
   }
   
