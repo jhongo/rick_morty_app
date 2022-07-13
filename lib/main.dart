@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         'home':(context) => HomeScreen(),
         'details':(context) => DetailsScreen(),
       },
-      
+        
     );
   }
 }

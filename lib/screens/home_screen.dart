@@ -23,13 +23,7 @@ class HomeScreen extends StatelessWidget {
         title: Text('Rick and Morty', style: TextStyle(color: Color(0xFF353535)),),
         centerTitle: true,
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        width: w,
-        height: h,
-        color: Color(0xFFd9d9d9),
-        child: GridCharacters()
-        )
+      body: GridCharacters()
     );
   }
 }
