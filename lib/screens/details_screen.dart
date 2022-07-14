@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:rick_morty/models/character.dart';
 
 class DetailsScreen extends StatelessWidget {
-   
-  const DetailsScreen({Key? key}) : super(key: key);
+   final Character dcharacter;
+  const DetailsScreen({Key? key, required this.dcharacter}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
-    final Character dcharacter = ModalRoute.of(context)!.settings.arguments as Character;
+    // final Character dcharacter = ModalRoute.of(context)!.settings.arguments as Character;
     return Scaffold(
       appBar: AppBar(
       backgroundColor: Color(0xFFdad7cd),

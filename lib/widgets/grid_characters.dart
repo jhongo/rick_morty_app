@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rick_morty/screens/details_screen.dart';
 import 'package:rick_morty/services/character_service.dart';
 
 class GridCharacters extends StatefulWidget {
@@ -62,7 +63,22 @@ class _GridCharactersState extends State<GridCharacters> with SingleTickerProvid
             final dataCharacter = character[index];
             return GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'details', arguments: dataCharacter );
+                // Navigator.pushNamed(context, 'details', arguments: dataCharacter);
+                Navigator.of(context).push( PageRouteBuilder(
+                  transitionDuration: Duration(seconds: 2),
+                  transitionsBuilder:(context, animation, secondaryAnimation, child){
+                    final curveAnimation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+                    return ScaleTransition(
+                      scale: Tween<double>(begin:0.0 ,end:1.0 ).animate(curveAnimation),
+                      child: child,
+                      );
+                  },
+                  pageBuilder:(context, animation, secondaryAnimation) {
+                    return DetailsScreen(dcharacter: dataCharacter);
+                  },
+                
+                
+                ));
               },
               child: Hero(
                 tag: dataCharacter.id,
@@ -153,6 +169,9 @@ class _GridCharactersState extends State<GridCharacters> with SingleTickerProvid
           }),
     );
   }
+
+
+
 }
 
 

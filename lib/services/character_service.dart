@@ -29,7 +29,7 @@ class CharacterService extends ChangeNotifier {
     resultsCharacter.addAll(characterResponse.results);
     //opc ->2
     // resultsCharacter = characterResponse.results;
-    
+    print(characterResponse.results);
     notifyListeners();
   }
   
