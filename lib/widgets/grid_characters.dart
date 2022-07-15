@@ -90,8 +90,8 @@ class _GridCharactersState extends State<GridCharacters> with SingleTickerProvid
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              Color(0xFFb15b86),
-                              Color(0xFF440f50),
+                              Color(0xFFf9a470),
+                              Color(0xFFbc556f),
                             ]),
                         borderRadius: BorderRadius.circular(20),
                       ),

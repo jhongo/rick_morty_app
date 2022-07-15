@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:rick_morty/screens/details_screen.dart';
 import 'package:rick_morty/screens/home_screen.dart';
 import 'package:rick_morty/services/character_service.dart';
+import 'package:rick_morty/services/navbar_service.dart';
 
 void main() => runApp(AppState());
 
@@ -12,7 +13,8 @@ class AppState extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers:[
-        ChangeNotifierProvider(create:(context) => CharacterService(),lazy: false, )
+        ChangeNotifierProvider(create:(context) => CharacterService(),lazy: false, ),
+        ChangeNotifierProvider(create: (context) => NavBarService() ,)
       ],
       child: MyApp(),
       );
