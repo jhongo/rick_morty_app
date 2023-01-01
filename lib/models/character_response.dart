@@ -1,9 +1,4 @@
-// To parse this JSON data, do
-//
-//     final rickAndMortyResponse = rickAndMortyResponseFromMap(jsonString);
-
 import 'dart:convert';
-
 import 'package:rick_morty/models/character.dart';
 
 class RickAndMortyResponse {

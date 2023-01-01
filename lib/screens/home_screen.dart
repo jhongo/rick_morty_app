@@ -21,12 +21,7 @@ class HomeScreen extends StatelessWidget {
     final index = Provider.of<NavBarService>(context);
     return Scaffold(
       backgroundColor: Color(0xFFd9d9d9),
-      appBar: AppBar(
-        backgroundColor: Color(0xFFd9d9d9),
-        elevation: 0,
-        title: Text('Rick and Morty', style: TextStyle(color: Color(0xFF353535)),),
-        centerTitle: true,
-      ),
+
       body: Container(
         height: h,
         width: w,
