@@ -1,9 +1,6 @@
-import 'dart:ui';
 
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_morty/widgets/home-widgets/banner_main_widget.dart';
-import 'package:rick_morty/widgets/home-widgets/main_image_widget.dart';
+import 'package:rick_morty/widgets/home-widgets/home_widgets.dart';
 
 class GridCharacters extends StatelessWidget {
    
@@ -26,7 +23,9 @@ class GridCharacters extends StatelessWidget {
             SizedBox(height: 20,),
             BannerMain(width: w, height: h),
             SizedBox(height: 20,),
-            
+            TitleCharacter(w: w),
+            SliderCharacter(width: w, height: h,)
+
           ],
          ),
        ),
