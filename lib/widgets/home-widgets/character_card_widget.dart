@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:rick_morty/models/character.dart';
 
 
 class CharacterCard extends StatelessWidget {
-  const CharacterCard({super.key});
+
+  final Character character;
+
+  const CharacterCard({super.key, required this.character});
 
   @override
   Widget build(BuildContext context) {

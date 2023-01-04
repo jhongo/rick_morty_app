@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:list_wheel_scroll_view_nls/list_wheel_scroll_view_nls.dart';
+import 'package:provider/provider.dart';
+import 'package:rick_morty/services/character_service.dart';
 import 'package:rick_morty/widgets/home-widgets/home_widgets.dart';
 
 
@@ -10,17 +11,24 @@ class SliderCharacter extends StatelessWidget {
   
   const SliderCharacter({super.key, required this.width, required this.height});
 
+
+
   @override
   Widget build(BuildContext context) {
+    final character = Provider.of<CharacterService>(context);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10),
       width: width,
       height: height* 0.33 ,
-      // color: Colors.indigo,
       child:ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
-        itemBuilder:(context, index) => CharacterCard(),
+        itemCount: character.resultsCharacter.length,
+        itemBuilder:(context, index) {
+          final dataCharacter = character.resultsCharacter[index];
+          return CharacterCard(
+          character: dataCharacter ,
+        );
+        } 
         
         )
     );
