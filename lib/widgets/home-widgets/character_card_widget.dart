@@ -16,10 +16,24 @@ class CharacterCard extends StatelessWidget {
       decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.only(
-        bottomRight: Radius.circular(30),
-        topLeft: Radius.circular(30)
-      ),
+        topLeft: Radius.circular(25),
+        topRight: Radius.circular(25),
+        bottomLeft: Radius.circular(25),
+        bottomRight: Radius.circular(50),
 
+      )),
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+         topLeft: Radius.circular(25),
+        topRight: Radius.circular(25),
+        bottomLeft: Radius.circular(25),
+        bottomRight: Radius.circular(50),
+        ),
+        child: FadeInImage(
+          placeholder: AssetImage('assets/gif/giphy.gif'), 
+          image: NetworkImage('${character.image}'),
+          fit: BoxFit.fill,
+          ),
       ),
 
     );
