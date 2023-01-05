@@ -21,11 +21,13 @@ class DetailsScreen extends StatelessWidget {
       }, icon: Icon(Icons.arrow_back_ios_rounded, color: Color(0xFF5f0f40))),
       title: Text('Datos personales', style: TextStyle(fontSize: 25, color: Color(0xFF5f0f40) ),),
       ),
-      body: Stack(
-        children: [
-          Hero(
-            tag: 'img-1',
-            child: ClipRRect(
+      body: Container(
+        width: w,
+        height: h,
+        color: Colors.black,
+        child: Stack(
+          children: [
+            ClipRRect(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(50),
                 bottomRight: Radius.circular(100)
@@ -48,8 +50,22 @@ class DetailsScreen extends StatelessWidget {
                   ),
               ),
             ),
+      
+          Positioned(
+            right: 0,
+            child: RotatedBox(
+              quarterTurns: -1,
+              child: Container(
+                width: w * 0.8,
+                height: h * 0.08,
+                color: Colors.indigo,
+                child: Text(' ${ (dcharacter.origin!.name)} ',style: TextStyle(fontSize: 25, color: Colors.white),  ),
+              ),
+            ),
           )
-        ],
+      
+          ],
+        ),
       )
     );
   }
