@@ -4,8 +4,11 @@ import 'package:rick_morty/widgets/home-widgets/home_widgets.dart';
 
 class CharacterCard extends StatelessWidget {
   final Character character;
-
-  const CharacterCard({super.key, required this.character});
+  // final VoidCallback onTap;
+  final double width;
+  const CharacterCard({super.key, 
+  required this.character, 
+  required this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class CharacterCard extends StatelessWidget {
     final w = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15),
-      width: 200,
+      width: width,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -40,7 +43,7 @@ class CharacterCard extends StatelessWidget {
                 ),
               ),
               Positioned(bottom: 0, child: NameTitle(text: '${character.name}',))
-
+    
             ],
           )),
     );
