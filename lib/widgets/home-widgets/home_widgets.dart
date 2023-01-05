@@ -1,3 +1,4 @@
+export 'package:rick_morty/widgets/home-widgets/name_title_widget.dart';
 export 'package:rick_morty/widgets/home-widgets/character_card_widget.dart';
 export 'package:rick_morty/widgets/home-widgets/slider_character_widget.dart';
 export 'package:rick_morty/widgets/home-widgets/banner_main_widget.dart';
