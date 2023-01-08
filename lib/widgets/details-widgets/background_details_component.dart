@@ -14,13 +14,7 @@ class BackgroundDetailsComponent extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image:AssetImage('assets/imgs/back_rick_morty.jpg',),
-          fit: BoxFit.fill,
-          colorFilter: ColorFilter.mode(Color(0xFF283618), BlendMode.overlay)
-          )
-      ),
+     color: Color(0xFFffbf69),
     );
   }
 }
