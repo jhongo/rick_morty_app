@@ -37,7 +37,7 @@ class CharacterCard extends StatelessWidget {
               Container(
                 height: h,
                 child: FadeInImage(
-                  placeholder: AssetImage('assets/gif/giphy.gif'),
+                  placeholder: AssetImage('assets/gif/pickle.gif'),
                   image: NetworkImage('${character.image}'),
                   fit: BoxFit.fill,
                 ),

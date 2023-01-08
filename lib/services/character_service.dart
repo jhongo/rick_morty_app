@@ -18,7 +18,7 @@ class CharacterService extends ChangeNotifier {
 /// It takes the URL, makes a request to the API, and then parses the response into a list of characters
   getAllCharacter() async {
     final url = await Uri.https(_urlBase,'/api/character',{
-      'page':'1'
+      'page':'3'
     });
 
     final response = await http.get(url);
